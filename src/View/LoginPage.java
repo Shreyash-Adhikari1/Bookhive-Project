@@ -48,6 +48,9 @@ public class LoginPage extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo1.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -94,6 +97,11 @@ public class LoginPage extends javax.swing.JFrame {
 
         RegisterHere.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         RegisterHere.setText("Register Here");
+        RegisterHere.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegisterHereMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,6 +194,12 @@ public class LoginPage extends javax.swing.JFrame {
             passwordField.setEchoChar('*');
         }
     }//GEN-LAST:event_ShowPasswordActionPerformed
+
+    private void RegisterHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterHereMouseClicked
+       this.dispose();
+       SignUp sign= new SignUp();
+       sign.setVisible(true);
+    }//GEN-LAST:event_RegisterHereMouseClicked
 
     /**
      * @param args the command line arguments
