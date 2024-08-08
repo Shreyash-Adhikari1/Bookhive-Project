@@ -325,11 +325,11 @@
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="LogoutButton" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" pref="186" max="32767" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
+                              <Component id="DashBorrowDetailsLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="DashCustomersPageLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="DashCustomersDetailsLabel" alignment="0" pref="186" max="32767" attributes="0"/>
+                              <Component id="DashHomeLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="DashBorrowPageLabel" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -347,15 +347,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="DashLogo" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="DashHomeLabel" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="DashCustomersDetailsLabel" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="DashCustomersPageLabel" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="DashBorrowDetailsLabel" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jLabel7" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="DashBorrowPageLabel" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace pref="590" max="32767" attributes="0"/>
                   <Component id="LogoutButton" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
@@ -364,7 +364,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="DashHomeLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -374,6 +374,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Home"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashHomeLabelMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="DashLogo">
           <Properties>
@@ -385,7 +388,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashLogoMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="DashCustomersDetailsLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -396,8 +399,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Customer Details"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashCustomersDetailsLabelMouseClicked"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="DashBorrowDetailsLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -407,8 +413,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Borrow Details"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashBorrowDetailsLabelMouseClicked"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="DashCustomersPageLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -418,8 +427,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Customers Page"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashCustomersPageLabelMouseClicked"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="DashBorrowPageLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -429,6 +441,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Borrow Page"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="DashBorrowPageLabelMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="LogoutButton">
           <Properties>
