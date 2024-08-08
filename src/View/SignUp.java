@@ -54,7 +54,8 @@ public class SignUp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(840, 730));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -239,10 +240,12 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 400, 610));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(220, 50, 400, 610);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/asc 1.png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1690, 840));
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, 0, 1690, 840);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
