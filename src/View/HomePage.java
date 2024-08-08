@@ -757,6 +757,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
+        HomePage home = new HomePage();
+        home.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -785,6 +788,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void borrowedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowedLabelMouseClicked
         // TODO add your handling code here:
+        BooksView bookView = new BooksView();
+        bookView.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_borrowedLabelMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
