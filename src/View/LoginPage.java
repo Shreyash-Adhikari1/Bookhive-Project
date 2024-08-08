@@ -36,7 +36,6 @@ public class LoginPage extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
-        forgetPassword = new javax.swing.JLabel();
         LoginBtn = new javax.swing.JButton();
         ShowPassword = new javax.swing.JCheckBox();
         newUser = new javax.swing.JLabel();
@@ -48,9 +47,6 @@ public class LoginPage extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo1.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -67,9 +63,6 @@ public class LoginPage extends javax.swing.JFrame {
 
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passwordLabel.setText("Password");
-
-        forgetPassword.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        forgetPassword.setText("Forget password?");
 
         LoginBtn.setBackground(new java.awt.Color(255, 153, 0));
         LoginBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -118,19 +111,16 @@ public class LoginPage extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(22, 22, 22))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ShowPassword)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                                .addComponent(forgetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailField)
+                            .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                             .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(newUser)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(RegisterHere))
-                            .addComponent(passwordField))))
+                            .addComponent(passwordField)
+                            .addComponent(ShowPassword))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,11 +138,9 @@ public class LoginPage extends javax.swing.JFrame {
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(forgetPassword)
-                    .addComponent(ShowPassword))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(ShowPassword)
+                .addGap(40, 40, 40)
                 .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,6 +171,10 @@ public class LoginPage extends javax.swing.JFrame {
         String password =passwordField.getText();
         if(email.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
+        }else{          
+            HomePage home= new HomePage();
+            home.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_LoginBtnActionPerformed
 
@@ -196,9 +188,11 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_ShowPasswordActionPerformed
 
     private void RegisterHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterHereMouseClicked
-       this.dispose();
-       SignUp sign= new SignUp();
-       sign.setVisible(true);
+        // TODO add your handling code here:
+        SignUp sign = new SignUp();
+        sign.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_RegisterHereMouseClicked
 
     /**
@@ -240,7 +234,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JCheckBox ShowPassword;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JLabel forgetPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

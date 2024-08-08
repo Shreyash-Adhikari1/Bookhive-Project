@@ -10,7 +10,7 @@ package View;
  * @author Lenovo
  */
 public class splash extends javax.swing.JFrame {
-//test
+
     /**
      * Creates new form splash
      */

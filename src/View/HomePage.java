@@ -11,12 +11,12 @@ import com.formdev.flatlaf.extras.FlatSVGIcon;
  * @author Lenovo
  */
 //import frontdev.flatlaf.extras.FlatSVGIcon;
-public class CategoryPage extends javax.swing.JFrame {
+public class HomePage extends javax.swing.JFrame {
 
     /**
      * Creates new form CategoryPage
      */
-    public CategoryPage() {
+    public HomePage() {
         initComponents();
     }
 
@@ -36,10 +36,11 @@ public class CategoryPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         homeLabel = new javax.swing.JLabel();
-        categoryLabel = new javax.swing.JLabel();
         borrowedLabel = new javax.swing.JLabel();
         availableLabel = new javax.swing.JLabel();
         customerLabel = new javax.swing.JLabel();
+        borrowedLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -98,7 +99,7 @@ public class CategoryPage extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        loginButton = new javax.swing.JLabel();
 
         jLabel26.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\OneDrive\\Pictures\\Book Management System\\BooksPics\\fiction1.jpg")); // NOI18N
         jLabel26.setText("jLabel20");
@@ -146,6 +147,11 @@ public class CategoryPage extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 6, 144, -1));
 
         homeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -156,27 +162,59 @@ public class CategoryPage extends javax.swing.JFrame {
                 homeLabelMouseClicked(evt);
             }
         });
-        jPanel2.add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 151, 62, 25));
-
-        categoryLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        categoryLabel.setIcon(new FlatSVGIcon("category.svg"));
-        categoryLabel.setText("Category");
-        jPanel2.add(categoryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 194, 100, -1));
+        jPanel2.add(homeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 62, 25));
 
         borrowedLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        borrowedLabel.setIcon(new FlatSVGIcon("bookBorrowed.svg"));
-        borrowedLabel.setText("Books Borrowed");
-        jPanel2.add(borrowedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, 28));
+        borrowedLabel.setIcon(new FlatSVGIcon("bookAvailable.svg"));
+        borrowedLabel.setText("Borrow Page");
+        borrowedLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrowedLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(borrowedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, 28));
 
         availableLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        availableLabel.setIcon(new FlatSVGIcon("bookAvailable.svg"));
-        availableLabel.setText("Books Available");
-        jPanel2.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 130, -1));
+        availableLabel.setIcon(new FlatSVGIcon("customerPage.svg"));
+        availableLabel.setText("Customers Page");
+        availableLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                availableLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(availableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 130, -1));
 
         customerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         customerLabel.setIcon(new FlatSVGIcon("customer.svg"));
         customerLabel.setText("Customer Details");
-        jPanel2.add(customerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 140, -1));
+        customerLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(customerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 140, -1));
+
+        borrowedLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        borrowedLabel1.setIcon(new FlatSVGIcon("bookBorrowed.svg"));
+        borrowedLabel1.setText("Borrow Details");
+        borrowedLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrowedLabel1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(borrowedLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, 28));
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new FlatSVGIcon("logout.svg"));
+        jButton1.setText("Logout");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, 120, 30));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 780));
 
@@ -184,7 +222,7 @@ public class CategoryPage extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setText("Genres");
+        jLabel10.setText("BOOKS");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 65, -1));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 3, 16)); // NOI18N
@@ -643,9 +681,14 @@ public class CategoryPage extends javax.swing.JFrame {
 
         jPanel3.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 590, -1, 170));
 
-        jLabel3.setIcon(new FlatSVGIcon("loginLogo.svg"));
-        jLabel3.setText(".");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 30, -1));
+        loginButton.setIcon(new FlatSVGIcon("loginLogo.svg"));
+        loginButton.setText(".");
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 30, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 0, 920, 790));
 
@@ -654,6 +697,9 @@ public class CategoryPage extends javax.swing.JFrame {
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
         // TODO add your handling code here:
+        HomePage home= new HomePage();
+        home.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
@@ -704,6 +750,50 @@ public class CategoryPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel16MouseClicked
 
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_loginButtonMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void customerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerLabelMouseClicked
+        // TODO add your handling code here:
+        CustomerDetails customer= new CustomerDetails();
+        customer.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_customerLabelMouseClicked
+
+    private void availableLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_availableLabelMouseClicked
+        // TODO add your handling code here:
+        CustomerView customerView = new CustomerView();
+        customerView.setVisible(true);
+        this.dispose();
+        
+        
+    }//GEN-LAST:event_availableLabelMouseClicked
+
+    private void borrowedLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowedLabel1MouseClicked
+        // TODO add your handling code here:
+        BookingDetails book= new BookingDetails();
+        book.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_borrowedLabel1MouseClicked
+
+    private void borrowedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrowedLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_borrowedLabelMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        LoginPage log= new LoginPage();
+        log.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -721,20 +811,21 @@ public class CategoryPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CategoryPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CategoryPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CategoryPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CategoryPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CategoryPage().setVisible(true);
+                new HomePage().setVisible(true);
             }
         });
     }
@@ -742,9 +833,10 @@ public class CategoryPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel availableLabel;
     private javax.swing.JLabel borrowedLabel;
-    private javax.swing.JLabel categoryLabel;
+    private javax.swing.JLabel borrowedLabel1;
     private javax.swing.JLabel customerLabel;
     private javax.swing.JLabel homeLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -765,7 +857,6 @@ public class CategoryPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -810,5 +901,6 @@ public class CategoryPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel loginButton;
     // End of variables declaration//GEN-END:variables
 }
