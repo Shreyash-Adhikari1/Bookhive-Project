@@ -46,7 +46,7 @@ public class BooksView extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        DashLogo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -123,7 +123,12 @@ public class BooksView extends javax.swing.JFrame {
         jLabel2.setIcon(new FlatSVGIcon("homeicon.svg"));
         jLabel2.setText("Home");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo_small.png"))); // NOI18N
+        DashLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo_small.png"))); // NOI18N
+        DashLogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashLogoMouseClicked(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -170,14 +175,14 @@ public class BooksView extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(DashLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -311,6 +316,13 @@ public class BooksView extends javax.swing.JFrame {
         log.setVisible(true);
     }//GEN-LAST:event_LogoutButtonMouseClicked
 
+    private void DashLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashLogoMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        HomePage home = new HomePage();
+        home.setVisible(true);
+    }//GEN-LAST:event_DashLogoMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -347,6 +359,7 @@ public class BooksView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DashLogo;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -360,7 +373,6 @@ public class BooksView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

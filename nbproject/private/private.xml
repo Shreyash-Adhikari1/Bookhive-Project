@@ -4,19 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/hidepw.svg</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/CategoryPage.java</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/CategoryPage.form</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/customerPage.svg</file>
+            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/BooksView.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/CustomerView.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/BooksPics/asc%201.png</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/homeicon.svg</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/splash.java</file>
+            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/BookingDetails.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/SignUp.form</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/SignUp.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/LoginPage.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/borrowPage.svg</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/bookBorrowed1.svg</file>
-            <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/LoginPage.form</file>
         </group>
     </open-files>
 </project-private>
