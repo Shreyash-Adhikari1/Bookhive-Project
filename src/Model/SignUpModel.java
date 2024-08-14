@@ -13,7 +13,7 @@ public class SignUpModel {
     private final String email;
     private final String password;
     private final String conf_password;
-    final int registrationNO;
+    private final int registrationNO;
     
     public SignUpModel(String email, String password, String conf_password , int registrationNO){
         this.email= email;
