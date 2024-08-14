@@ -30,18 +30,18 @@ import javax.swing.JOptionPane;
 
         nameField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         homeLabel = new javax.swing.JLabel();
         borrowedLabel = new javax.swing.JLabel();
         availableLabel = new javax.swing.JLabel();
         customerLabel = new javax.swing.JLabel();
         borrowedLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        aboutLabel = new javax.swing.JLabel();
+        supportLabel = new javax.swing.JLabel();
         loginButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        fillUpLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         NameLabel = new javax.swing.JLabel();
         addressLabel = new javax.swing.JLabel();
@@ -52,7 +52,7 @@ import javax.swing.JOptionPane;
         contactField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
-        addButton = new javax.swing.JButton();
+        addLabel = new javax.swing.JButton();
         genderCombo = new javax.swing.JComboBox<>();
 
         nameField1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,11 +67,11 @@ import javax.swing.JOptionPane;
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo2.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo2.png"))); // NOI18N
+        logo.setText("jLabel1");
+        logo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                logoMouseClicked(evt);
             }
         });
 
@@ -120,14 +120,14 @@ import javax.swing.JOptionPane;
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new FlatSVGIcon("logout.svg"));
-        jButton1.setText("Logout");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        logoutButton.setBackground(new java.awt.Color(255, 153, 0));
+        logoutButton.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setIcon(new FlatSVGIcon("logout.svg"));
+        logoutButton.setText("Logout");
+        logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                logoutButtonMouseClicked(evt);
             }
         });
 
@@ -141,7 +141,7 @@ import javax.swing.JOptionPane;
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(35, 35, 35)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(50, 50, 50)
                             .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,14 +156,14 @@ import javax.swing.JOptionPane;
                             .addComponent(borrowedLabel))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGap(40, 40, 40)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jLabel1)
+                .addComponent(logo)
                 .addGap(47, 47, 47)
                 .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
@@ -175,17 +175,17 @@ import javax.swing.JOptionPane;
                 .addGap(22, 22, 22)
                 .addComponent(borrowedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(302, 302, 302)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(227, 227, 227));
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel18.setText("About");
+        aboutLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        aboutLabel.setText("About");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel11.setText("Support");
+        supportLabel.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        supportLabel.setText("Support");
 
         loginButton.setIcon(new FlatSVGIcon("loginLogo.svg"));
         loginButton.setText(".");
@@ -195,8 +195,8 @@ import javax.swing.JOptionPane;
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setText("Fill Up Customers Details");
+        fillUpLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        fillUpLabel.setText("Fill Up Customers Details");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0)));
@@ -245,18 +245,18 @@ import javax.swing.JOptionPane;
             }
         });
 
-        addButton.setBackground(new java.awt.Color(255, 153, 0));
-        addButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        addButton.setForeground(new java.awt.Color(255, 255, 255));
-        addButton.setText("Add");
-        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        addLabel.setBackground(new java.awt.Color(255, 153, 0));
+        addLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        addLabel.setForeground(new java.awt.Color(255, 255, 255));
+        addLabel.setText("Add");
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addButtonMouseClicked(evt);
+                addLabelMouseClicked(evt);
             }
         });
-        addButton.addActionListener(new java.awt.event.ActionListener() {
+        addLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+                addLabelActionPerformed(evt);
             }
         });
 
@@ -284,7 +284,7 @@ import javax.swing.JOptionPane;
                 .addGap(56, 56, 56))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(180, 180, 180))
         );
         jPanel1Layout.setVerticalGroup(
@@ -311,7 +311,7 @@ import javax.swing.JOptionPane;
                     .addComponent(emailLabel)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
 
@@ -323,14 +323,14 @@ import javax.swing.JOptionPane;
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(716, 716, 716)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(supportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(300, 300, 300)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fillUpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -345,10 +345,10 @@ import javax.swing.JOptionPane;
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel11))))
+                            .addComponent(aboutLabel)
+                            .addComponent(supportLabel))))
                 .addGap(67, 67, 67)
-                .addComponent(jLabel2)
+                .addComponent(fillUpLabel)
                 .addGap(58, 58, 58)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -376,13 +376,13 @@ import javax.swing.JOptionPane;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
         // TODO add your handling code here:
         HomePage home = new HomePage();
         home.setVisible(true);
         this.dispose();
 
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_logoMouseClicked
 
     private void homeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseClicked
         // TODO add your handling code here:
@@ -413,7 +413,7 @@ import javax.swing.JOptionPane;
         // TODO add your handling code here:
     }//GEN-LAST:event_emailFieldActionPerformed
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void addLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLabelActionPerformed
         // TODO add your handling code here:
         String name = nameField.getText();
         String address = addressField.getText();
@@ -426,7 +426,7 @@ import javax.swing.JOptionPane;
             home.setVisible(true);
             this.dispose();
         }
-    }//GEN-LAST:event_addButtonActionPerformed
+    }//GEN-LAST:event_addLabelActionPerformed
 
     private void customerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerLabelMouseClicked
         // TODO add your handling code here:
@@ -457,20 +457,20 @@ import javax.swing.JOptionPane;
         this.dispose();
     }//GEN-LAST:event_borrowedLabelMouseClicked
 
-    private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_addButtonMouseClicked
+    }//GEN-LAST:event_addLabelMouseClicked
 
     private void contactFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFieldKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_contactFieldKeyPressed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
         // TODO add your handling code here:
         LoginPage log= new LoginPage();
         log.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_logoutButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -509,7 +509,8 @@ import javax.swing.JOptionPane;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NameLabel;
-    private javax.swing.JButton addButton;
+    private javax.swing.JLabel aboutLabel;
+    private javax.swing.JButton addLabel;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel availableLabel;
@@ -520,19 +521,18 @@ import javax.swing.JOptionPane;
     private javax.swing.JLabel customerLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel fillUpLabel;
     private javax.swing.JComboBox<String> genderCombo;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel homeLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginButton;
+    private javax.swing.JLabel logo;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField nameField1;
+    private javax.swing.JLabel supportLabel;
     // End of variables declaration//GEN-END:variables
 }

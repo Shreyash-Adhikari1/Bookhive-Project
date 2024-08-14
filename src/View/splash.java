@@ -31,7 +31,7 @@ public class splash extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         getStarted = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        slogan = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,9 +57,9 @@ public class splash extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Historic", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("Where Every Book Find It's Perfect Hive!");
+        slogan.setFont(new java.awt.Font("Segoe UI Historic", 0, 18)); // NOI18N
+        slogan.setForeground(new java.awt.Color(102, 102, 102));
+        slogan.setText("Where Every Book Find It's Perfect Hive!");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/splashBackground.jpg"))); // NOI18N
 
@@ -75,7 +75,7 @@ public class splash extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(350, 350, 350)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(slogan, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(390, 390, 390)
                 .addComponent(getStarted, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -89,7 +89,7 @@ public class splash extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(jLabel3)
                 .addGap(23, 23, 23)
-                .addComponent(jLabel4))
+                .addComponent(slogan))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(420, 420, 420)
                 .addComponent(getStarted, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +160,7 @@ public class splash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel slogan;
     // End of variables declaration//GEN-END:variables
 }
