@@ -30,12 +30,12 @@ public class CustomerView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        DashHomeLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        DashCustomerDetailsLabel = new javax.swing.JLabel();
+        DashBorrowDetailsLabel = new javax.swing.JLabel();
+        DashCustomerPageLabel = new javax.swing.JLabel();
+        DashBorrowPageLabel = new javax.swing.JLabel();
         LogoutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -64,28 +64,48 @@ public class CustomerView extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(238, 696));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setIcon(new FlatSVGIcon("homeicon.svg"));
-        jLabel2.setText("Home");
+        DashHomeLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DashHomeLabel.setIcon(new FlatSVGIcon("homeicon.svg"));
+        DashHomeLabel.setText("Home");
+        DashHomeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashHomeLabelMouseClicked(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BooksPics/logo_small.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setIcon(new FlatSVGIcon("customers1.svg"));
-        jLabel4.setText("Customer Details");
+        DashCustomerDetailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DashCustomerDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        DashCustomerDetailsLabel.setIcon(new FlatSVGIcon("customers1.svg"));
+        DashCustomerDetailsLabel.setText("Customer Details");
+        DashCustomerDetailsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashCustomerDetailsLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setIcon(new FlatSVGIcon("bookBorrowed1.svg"));
-        jLabel5.setText("Borrow Details");
+        DashBorrowDetailsLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DashBorrowDetailsLabel.setIcon(new FlatSVGIcon("bookBorrowed1.svg"));
+        DashBorrowDetailsLabel.setText("Borrow Details");
+        DashBorrowDetailsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashBorrowDetailsLabelMouseClicked(evt);
+            }
+        });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setIcon(new FlatSVGIcon("customerPage.svg"));
-        jLabel6.setText("Customers Page");
+        DashCustomerPageLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DashCustomerPageLabel.setIcon(new FlatSVGIcon("customerPage.svg"));
+        DashCustomerPageLabel.setText("Customers Page");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setIcon(new FlatSVGIcon("borrowPage.svg"));
-        jLabel7.setText("Borrow Page");
+        DashBorrowPageLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        DashBorrowPageLabel.setIcon(new FlatSVGIcon("borrowPage.svg"));
+        DashBorrowPageLabel.setText("Borrow Page");
+        DashBorrowPageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DashBorrowPageLabelMouseClicked(evt);
+            }
+        });
 
         LogoutButton.setBackground(new java.awt.Color(255, 153, 0));
         LogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -108,11 +128,11 @@ public class CustomerView extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(DashBorrowDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DashCustomerPageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DashCustomerDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                            .addComponent(DashHomeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DashBorrowPageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -124,15 +144,15 @@ public class CustomerView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashHomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashCustomerDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashCustomerPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashBorrowDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DashBorrowPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                 .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
@@ -308,6 +328,34 @@ public class CustomerView extends javax.swing.JFrame {
        log.setVisible(true);
     }//GEN-LAST:event_LogoutButtonMouseClicked
 
+    private void DashHomeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashHomeLabelMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        HomePage home = new HomePage();
+        home.setVisible(true);
+    }//GEN-LAST:event_DashHomeLabelMouseClicked
+
+    private void DashCustomerDetailsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashCustomerDetailsLabelMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        CustomerDetails cd = new CustomerDetails();
+        cd.setVisible(true);
+    }//GEN-LAST:event_DashCustomerDetailsLabelMouseClicked
+
+    private void DashBorrowDetailsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashBorrowDetailsLabelMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        BookingDetails bd = new BookingDetails();
+        bd.setVisible(true);
+    }//GEN-LAST:event_DashBorrowDetailsLabelMouseClicked
+
+    private void DashBorrowPageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DashBorrowPageLabelMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        BooksView bv = new BooksView();
+        bv.setVisible(true);
+    }//GEN-LAST:event_DashBorrowPageLabelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -344,6 +392,11 @@ public class CustomerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DashBorrowDetailsLabel;
+    private javax.swing.JLabel DashBorrowPageLabel;
+    private javax.swing.JLabel DashCustomerDetailsLabel;
+    private javax.swing.JLabel DashCustomerPageLabel;
+    private javax.swing.JLabel DashHomeLabel;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -356,12 +409,7 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
