@@ -500,10 +500,8 @@ import javax.swing.JOptionPane;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerDetails().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CustomerDetails().setVisible(true);
         });
     }
 
