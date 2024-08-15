@@ -287,6 +287,9 @@ JOptionPane.showMessageDialog(rootPane, "Passwords Dont Match");
 }
 else{
 JOptionPane.showMessageDialog(rootPane, "Registration Successfull");
+this.dispose();
+LoginPage log = new LoginPage();
+log.setVisible(true);
         
 }
     }//GEN-LAST:event_RegisterButtonMouseClicked
