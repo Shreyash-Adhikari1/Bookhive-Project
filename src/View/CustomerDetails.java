@@ -430,9 +430,9 @@ import javax.swing.JOptionPane;
             JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
         }
         else{          
-            CustomerView customer= new CustomerView();
+          CustomerView customer= new CustomerView();
             customer.setVisible(true);
-            this.dispose();
+            this.dispose();  
         }
     }//GEN-LAST:event_addLabelActionPerformed
 
