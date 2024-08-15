@@ -274,6 +274,10 @@ else if(email.equals("")){
     JOptionPane.showMessageDialog(rootPane,"Enter Email!");
     return;
 }
+else if(!email.endsWith("@gmail.com")){
+            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
+            return;
+        }
 else if (password.equals("")){
         JOptionPane.showMessageDialog(rootPane,"Enter Password!");
     return;
