@@ -62,7 +62,6 @@ import javax.swing.JOptionPane;
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1133, 790));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -421,7 +420,16 @@ import javax.swing.JOptionPane;
         String email = emailField.getText();
         if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-        }else{          
+            return;
+        }
+        if(contact.length()!=10){
+            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
+            return;
+        }
+        if(!email.endsWith("@gmail.com")){
+            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
+        }
+        else{          
             CustomerView customer= new CustomerView();
             customer.setVisible(true);
             this.dispose();

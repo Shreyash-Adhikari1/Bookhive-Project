@@ -184,7 +184,12 @@ public class LoginPage extends javax.swing.JFrame {
         String password =passwordField.getText();
         if(email.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-        }else{          
+            return;
+        }
+        if(!email.endsWith("@gmail.com")){
+            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
+        }
+        else{          
             HomePage home= new HomePage();
             home.setVisible(true);
             this.dispose();
