@@ -392,7 +392,12 @@ public class BookingDetails extends javax.swing.JFrame {
         String returnDate = returnField.getText();
         if(customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-        }else{          
+            return;
+        }
+        if(contact.length()!=10){
+            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
+        }
+        else{          
             BooksView book = new BooksView();
             book.setVisible(true);
             this.dispose();
