@@ -393,8 +393,8 @@ public class BookingDetails extends javax.swing.JFrame {
         if(customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
         }else{          
-            HomePage home= new HomePage();
-            home.setVisible(true);
+            BooksView book = new BooksView();
+            book.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_addButtonActionPerformed
@@ -481,10 +481,8 @@ public class BookingDetails extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BookingDetails().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new BookingDetails().setVisible(true);
         });
     }
 

@@ -422,8 +422,8 @@ import javax.swing.JOptionPane;
         if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
             JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
         }else{          
-            HomePage home= new HomePage();
-            home.setVisible(true);
+            CustomerView customer= new CustomerView();
+            customer.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_addLabelActionPerformed
@@ -500,10 +500,8 @@ import javax.swing.JOptionPane;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerDetails().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CustomerDetails().setVisible(true);
         });
     }
 

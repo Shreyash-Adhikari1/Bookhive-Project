@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/hidepw.svg</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/customerPage.svg</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/View/HomePage.java</file>
@@ -24,6 +25,14 @@
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/Model/BookingDetailsModel.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/Model/BookViewModel.java</file>
             <file>file:/C:/Users/Acer/Documents/NetBeansProjects/Bookhive-Project/src/bookBorrowed1.svg</file>
+=======
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/View/LoginPage.java</file>
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/View/CustomerDetails.java</file>
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/View/BookingDetails.java</file>
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/View/splash.java</file>
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/View/HomePage.java</file>
+            <file>file:/C:/Users/Lenovo/OneDrive/Documents/NetBeansProjects/BookManagement/Bookhive-Project/src/Model/LoginModel.java</file>
+>>>>>>> 58dc83bfed880c8eb1efdc9048a9e448f4068585
         </group>
     </open-files>
 </project-private>
