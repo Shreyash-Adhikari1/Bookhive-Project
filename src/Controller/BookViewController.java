@@ -58,4 +58,14 @@ private void UpdateBookButtonActionPerformed(java.awt.event.ActionEvent evt){
         return;
     }
 }
+private void DeleteBookbuttonMouseClicked(java.awt.event.MouseEvent evt) {
+String id = book.getBookIdField().getText().trim(); 
+
+    if (id.isEmpty()) {
+        JOptionPane.showMessageDialog(book, "Please select a row to delete.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    int confirm = JOptionPane.showConfirmDialog(book, "Are you sure you want to delete this record?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+}
 }
