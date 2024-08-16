@@ -200,7 +200,8 @@ public class CustomerView extends javax.swing.JFrame {
 
         customerNameField.setToolTipText("");
 
-        genderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender", "Male", "Female", "Non-Binary" }));
+        genderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Non-Binary" }));
+        genderCombo.setToolTipText("");
 
         jLabel9.setText("Customer ID");
 
