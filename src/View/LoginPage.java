@@ -2,6 +2,7 @@ package View;
 
 
 import javax.swing.JOptionPane;
+import Controller.LoginController;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,6 +20,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
+        new LoginController(this);
     }
 
     /**
@@ -182,20 +184,7 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
         // TODO add your handling code here:
-        String email = emailField.getText();
-        String password =passwordField.getText();
-        if(email.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-            return;
-        }
-        if(!email.endsWith("@gmail.com")){
-            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
-        }
-        else{          
-            HomePage home= new HomePage();
-            home.setVisible(true);
-            this.dispose();
-        }
+        
     }//GEN-LAST:event_LoginBtnActionPerformed
 
     private void ShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPasswordActionPerformed
@@ -215,6 +204,18 @@ public class LoginPage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_RegisterHereMouseClicked
 
+    
+    public javax.swing.JTextField getEmailField(){
+        return emailField;
+    }
+    
+    public javax.swing.JPasswordField getPasswordField(){
+        return passwordField;
+    }
+    
+    public javax.swing.JButton getLoginBtn(){ 
+        return LoginBtn;
+                }
     /**
      * @param args the command line arguments
      */
