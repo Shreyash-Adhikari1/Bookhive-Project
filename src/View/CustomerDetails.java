@@ -6,6 +6,7 @@ package View;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.JOptionPane;
+import Controller.CustomerDetailsController;
 
 /**
  *
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
      */
     public CustomerDetails() {
         initComponents();
+        new CustomerDetailsController(this);
     }
 
     /**
@@ -52,7 +54,7 @@ import javax.swing.JOptionPane;
         contactField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
-        addLabel = new javax.swing.JButton();
+        addBtn = new javax.swing.JButton();
         genderCombo = new javax.swing.JComboBox<>();
 
         nameField1.addActionListener(new java.awt.event.ActionListener() {
@@ -244,18 +246,18 @@ import javax.swing.JOptionPane;
             }
         });
 
-        addLabel.setBackground(new java.awt.Color(255, 153, 0));
-        addLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        addLabel.setForeground(new java.awt.Color(255, 255, 255));
-        addLabel.setText("Add");
-        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        addBtn.setBackground(new java.awt.Color(255, 153, 0));
+        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(255, 255, 255));
+        addBtn.setText("Add");
+        addBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addLabelMouseClicked(evt);
+                addBtnMouseClicked(evt);
             }
         });
-        addLabel.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addLabelActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
 
@@ -283,7 +285,7 @@ import javax.swing.JOptionPane;
                 .addGap(56, 56, 56))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(180, 180, 180))
         );
         jPanel1Layout.setVerticalGroup(
@@ -310,7 +312,7 @@ import javax.swing.JOptionPane;
                     .addComponent(emailLabel)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(addLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
 
@@ -412,29 +414,10 @@ import javax.swing.JOptionPane;
         // TODO add your handling code here:
     }//GEN-LAST:event_emailFieldActionPerformed
 
-    private void addLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLabelActionPerformed
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        String name = nameField.getText();
-        String address = addressField.getText();
-        String contact = contactField.getText();
-        String email = emailField.getText();
-        if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-            return;
-        }
-        if(contact.length()!=10){
-            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
-            return;
-        }
-        if(!email.endsWith("@gmail.com")){
-            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
-        }
-        else{          
-          CustomerView customer= new CustomerView();
-            customer.setVisible(true);
-            this.dispose();  
-        }
-    }//GEN-LAST:event_addLabelActionPerformed
+        
+    }//GEN-LAST:event_addBtnActionPerformed
 
     private void customerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerLabelMouseClicked
         // TODO add your handling code here:
@@ -465,9 +448,9 @@ import javax.swing.JOptionPane;
         this.dispose();
     }//GEN-LAST:event_borrowedLabelMouseClicked
 
-    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+    private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_addLabelMouseClicked
+    }//GEN-LAST:event_addBtnMouseClicked
 
     private void contactFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFieldKeyPressed
         // TODO add your handling code here:
@@ -480,6 +463,29 @@ import javax.swing.JOptionPane;
         this.dispose();
     }//GEN-LAST:event_logoutButtonMouseClicked
 
+    public javax.swing.JTextField getNameField(){
+        return nameField;
+    }
+    public javax.swing.JTextField getAddressField() {
+        return addressField;
+    }
+
+    public javax.swing.JTextField getContactField() {
+        return contactField;
+    }
+    
+    public javax.swing.JTextField getEmailField() {
+        return emailField;
+    }
+    
+    public javax.swing.JComboBox<String> getGenderCombo() {
+        return genderCombo;
+    }
+    
+    public javax.swing.JButton getAddBtn(){
+        return addBtn;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -516,7 +522,7 @@ import javax.swing.JOptionPane;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel NameLabel;
     private javax.swing.JLabel aboutLabel;
-    private javax.swing.JButton addLabel;
+    private javax.swing.JButton addBtn;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel availableLabel;

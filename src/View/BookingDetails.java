@@ -6,6 +6,7 @@ package View;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.JOptionPane;
+import Controller.BookingDetailsController;
 
 /**
  *
@@ -18,6 +19,7 @@ public class BookingDetails extends javax.swing.JFrame {
      */
     public BookingDetails() {
         initComponents();
+        new BookingDetailsController(this);
     }
 
     /**
@@ -385,23 +387,6 @@ public class BookingDetails extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-        String customerName = customerNameField.getText();
-        String contact = contactField.getText();
-        String bookName = bookNameField.getText();
-        String issuedDate = issuedField.getText();
-        String returnDate = returnField.getText();
-        if(customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-            return;
-        }
-        if(contact.length()!=10){
-            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
-        }
-        else{          
-            BooksView book = new BooksView();
-            book.setVisible(true);
-            this.dispose();
-        }
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
@@ -457,7 +442,33 @@ public class BookingDetails extends javax.swing.JFrame {
         log.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutButtonMouseClicked
-
+    
+    
+    public javax.swing.JButton getAddButton() {
+        return addButton;
+    }
+    
+    public javax.swing.JTextField getBookNameField() {
+        return bookNameField;
+    }
+    
+    public javax.swing.JTextField getContactField() {
+        return contactField;
+    }
+    
+    public javax.swing.JTextField getCustomerNameField() {
+        return customerNameField;
+    }
+    
+    public javax.swing.JTextField getIssuedField() {
+        return issuedField;
+    }
+    
+    public javax.swing.JTextField getReturnField() {
+        return returnField;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
