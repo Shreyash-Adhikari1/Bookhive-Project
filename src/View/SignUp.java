@@ -338,7 +338,23 @@ log.setVisible(true);
     LoginPage log = new LoginPage();
     log.setVisible(true);
     }//GEN-LAST:event_jLabel10MouseClicked
-
+ public javax.swing.JTextField getRegNoField(){
+    return RegNoField;
+    }
+    
+    public javax.swing.JTextField getEmailField(){
+        return EmailField;
+    }
+    public javax.swing.JPasswordField getPasswordField(){
+        return PasswordField;
+    }
+    
+    public javax.swing.JPasswordField getConfirmPassField(){
+        return ConfirmPassField;
+    }
+    public javax.swing.JButton getRegisterButton(){
+        return RegisterButton;
+    }
     /**
      * @param args the command line arguments
      */
