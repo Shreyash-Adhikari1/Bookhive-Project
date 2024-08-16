@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Controller.CustomerViewController;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.JOptionPane;
 
@@ -19,6 +19,7 @@ public class CustomerView extends javax.swing.JFrame {
      */
     public CustomerView() {
         initComponents();
+        new CustomerViewController(this);
     }
 
     /**
@@ -308,21 +309,6 @@ public class CustomerView extends javax.swing.JFrame {
 
     private void DeleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerButtonActionPerformed
        
-        String name = customerNameField.getText();
-        String address = addressField.getText();
-        String contact = contactField.getText();
-        String email = emailField.getText();
-        if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-            return;
-        }
-        if(contact.length()!=10){
-            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
-            return;
-        }
-        if(!email.endsWith("@gmail.com")){
-            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
-        }
     }//GEN-LAST:event_DeleteCustomerButtonActionPerformed
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -361,24 +347,39 @@ public class CustomerView extends javax.swing.JFrame {
 
     private void UpdateDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDetailsButtonActionPerformed
         // TODO add your handling code here:
-        String name = customerNameField.getText();
-        String address = addressField.getText();
-        String contact = contactField.getText();
-        String email = emailField.getText();
-        if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Please enter all the field");
-            return;
-        }
-        if(contact.length()!=10){
-            JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digit");
-            return;
-        }
-        if(!email.endsWith("@gmail.com")){
-            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
-        }
+
         
     }//GEN-LAST:event_UpdateDetailsButtonActionPerformed
+public javax.swing.JTextField getCustomerNameField(){
+    return customerNameField;
+}
 
+public javax.swing.JTextField getAddressField(){
+    return addressField;
+}
+public javax.swing.JTextField getContactField(){
+    return contactField;
+}
+
+public javax.swing.JComboBox<String> getGenderCombo(){
+    return genderCombo;
+}
+
+public javax.swing.JTextField getEmailField(){
+    return emailField;
+}
+
+public javax.swing.JButton getUpdateDetailsButton(){
+    return UpdateDetailsButton;
+}
+
+public javax.swing.JButton getDeleteCustomerButton(){
+    return DeleteCustomerButton;
+}
+
+public javax.swing.JTextField getCustomerIdField(){
+    return customerIdField;
+}
     /**
      * @param args the command line arguments
      */
