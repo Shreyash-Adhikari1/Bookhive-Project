@@ -262,42 +262,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void RegisterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterButtonMouseClicked
         // TODO add your handling code here:
-        String RegNO  = RegNoField.getText();
-        String email = EmailField.getText();
-        String password = PasswordField.getText();
-        String confirm = ConfirmPassField.getText();
-        
-        // to ensure text feilds not empty
-if(RegNO.equals("")){
-    JOptionPane.showMessageDialog(rootPane, "Enter Registration Number!");
-    
-}
-else if(email.equals("")){
-    JOptionPane.showMessageDialog(rootPane,"Enter Email!");
-    return;
-}
-else if(!email.endsWith("@gmail.com")){
-            JOptionPane.showMessageDialog(rootPane,"Email must contain '@gmail.com'");
-            return;
-        }
-else if (password.equals("")){
-        JOptionPane.showMessageDialog(rootPane,"Enter Password!");
-    return;
-}
-else if (confirm.equals("")){
-        JOptionPane.showMessageDialog(rootPane,"Enter Confirmation Password!");
-    return;
-}
-else if(!confirm.equals( password)){
-JOptionPane.showMessageDialog(rootPane, "Passwords Dont Match");
-}
-else{
-JOptionPane.showMessageDialog(rootPane, "Registration Successfull");
-this.dispose();
-LoginPage log = new LoginPage();
-log.setVisible(true);
-        
-}
+
     }//GEN-LAST:event_RegisterButtonMouseClicked
 
     private void LoginRedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginRedLabelMouseClicked
