@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Controller.BookViewController;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +20,7 @@ public class BooksView extends javax.swing.JFrame {
      */
     public BooksView() {
         initComponents();
+        new BookViewController(this);
     }
 
     /**
@@ -322,16 +323,7 @@ public class BooksView extends javax.swing.JFrame {
 
     private void deleteBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBookButtonActionPerformed
         // TODO add your handling code here:
-    String bookIdText = bookIdField.getText();
-    String customerName = customerNameField.getText();
-    String contact = contactField.getText();
-    String bookName = bookNameField.getText();
-    String issuedDate = issuedDateField.getText();
-    String returnDate = returnDateField.getText();
-    
-    if(bookIdText.isEmpty() || customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
-        JOptionPane.showMessageDialog(rootPane,"Please enter all the fields");
-    }
+ 
     }//GEN-LAST:event_deleteBookButtonActionPerformed
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -384,34 +376,34 @@ public class BooksView extends javax.swing.JFrame {
 
     private void updateBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookButtonActionPerformed
         // TODO add your handling code here:
-    String bookIdText = bookIdField.getText();
-    String customerName = customerNameField.getText();
-    String contact = contactField.getText();
-    String bookName = bookNameField.getText();
-    String issuedDate = issuedDateField.getText();
-    String returnDate = returnDateField.getText();
-    
-    if(bookIdText.isEmpty() || customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
-        JOptionPane.showMessageDialog(rootPane,"Please enter all the fields");
-        return;
-    }
-    if(contact.length()!=10){
-        JOptionPane.showMessageDialog(rootPane,"Contact Number must be 10 digits");
-        return;
-    }
-    int bookID = Integer.parseInt(bookIdText);
-    String datePattern = "MM/dd/yyyy";
-    try {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
-        dateFormat.setLenient(false);
-        dateFormat.parse(issuedDate);
-        dateFormat.parse(returnDate);
-    } catch (ParseException e) {
-        JOptionPane.showMessageDialog(rootPane,"Invalid date format. Please use MM/dd/yyyy");
-        return;
-    }
-    }//GEN-LAST:event_updateBookButtonActionPerformed
 
+    }//GEN-LAST:event_updateBookButtonActionPerformed
+public javax.swing.JButton getUpdateBookButton(){
+    return updateBookButton;
+}
+public javax.swing.JButton getDeleteBookButton(){
+    return deleteBookButton;
+}
+public javax.swing.JTextField getCustomerNameField(){
+    return customerNameField;
+}
+public javax.swing.JTextField getBookNameField(){
+    return bookNameField;
+}
+public javax.swing.JTextField getContactField(){
+    return contactField;
+}
+
+public javax.swing.JTextField getIssuedDateField(){
+    return issuedDateField;
+}
+
+public javax.swing.JTextField getReturnDateField(){
+    return returnDateField;
+}
+public javax.swing.JTextField getBookIdField(){
+    return bookIdField;
+}
     /**
      * @param args the command line arguments
      */

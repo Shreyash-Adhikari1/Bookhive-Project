@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class BookViewController {
+    private BooksView book;
     public BookViewController(BooksView book){
         this.book=book;
         
@@ -34,6 +35,7 @@ public class BookViewController {
 
 private void UpdateBookButtonActionPerformed(java.awt.event.ActionEvent evt){
         String bookIdText = book.getBookIdField().getText();
+        if (!bookIdText.isEmpty()){
         String customerName = book.getCustomerNameField().getText().trim();
         String contact = book.getContactField().getText().trim();
         String bookName = book.getBookNameField().getText().trim();
@@ -56,7 +58,9 @@ private void UpdateBookButtonActionPerformed(java.awt.event.ActionEvent evt){
     } catch (ParseException e) {
         JOptionPane.showMessageDialog(book,"Invalid date format. Please use MM/dd/yyyy");
         return;
-    }
+    }}else{
+            JOptionPane.showMessageDialog(null, "Book ID is required");
+        }
 }
 private void DeleteBookbuttonMouseClicked(java.awt.event.MouseEvent evt) {
 String id = book.getBookIdField().getText().trim(); 
