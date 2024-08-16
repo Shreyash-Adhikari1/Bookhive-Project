@@ -25,4 +25,37 @@ public class BookViewController {
         });
         
     }
+    private class UpdateButtonListener implements java.awt.event.ActionListener {
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            UpdateBookButtonActionPerformed(evt);
+        }
+}
+
+private void UpdateBookButtonActionPerformed(java.awt.event.ActionEvent evt){
+        String bookIdText = book.getBookIdField().getText();
+        String customerName = book.getCustomerNameField().getText().trim();
+        String contact = book.getContactField().getText().trim();
+        String bookName = book.getBookNameField().getText().trim();
+        String issuedDate = book.getIssuedDateField().getText().trim();
+        String returnDate = book.getReturnDateField().getText().trim();
+        if(customerName.isEmpty() || contact.isEmpty() || bookName.isEmpty() || issuedDate.isEmpty() || returnDate.isEmpty()){
+            JOptionPane.showMessageDialog(book,"Please enter all the field");
+            return;
+        }
+        if(contact.length()!=10){
+            JOptionPane.showMessageDialog(book,"Contact Number must be 10 digit");
+        }
+        int bookID = Integer.parseInt(bookIdText);
+    String datePattern = "MM/dd/yyyy";
+    try {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(datePattern);
+        dateFormat.setLenient(false);
+        dateFormat.parse(issuedDate);
+        dateFormat.parse(returnDate);
+    } catch (ParseException e) {
+        JOptionPane.showMessageDialog(book,"Invalid date format. Please use MM/dd/yyyy");
+        return;
+    }
+}
 }
