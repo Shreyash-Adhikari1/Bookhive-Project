@@ -7,6 +7,7 @@ package View;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import Controller.SignUpController;
 
 
 /**
@@ -20,6 +21,7 @@ public class SignUp extends javax.swing.JFrame {
      */
     public SignUp() {
         initComponents();
+        new SignUpController(this);
     }
 
     /**
