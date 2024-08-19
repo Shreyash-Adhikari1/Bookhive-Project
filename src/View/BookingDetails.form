@@ -170,11 +170,11 @@
                       </Group>
                       <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="customerNameField" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="returnField" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="contactField" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="bookNameField" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="issuedField" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="Cname" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="rtn" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="cont" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="name" alignment="0" min="-2" pref="222" max="-2" attributes="0"/>
+                          <Component id="isue" min="-2" pref="222" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
@@ -186,27 +186,27 @@
                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="customerNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="customerNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Cname" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="contactLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="contactField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cont" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="bookNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bookNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="issuedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="issuedField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="isue" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="returnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="returnField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="84" max="32767" attributes="0"/>
                       <Component id="addButton" min="-2" pref="31" max="-2" attributes="0"/>
@@ -256,24 +256,24 @@
                 <Property name="text" type="java.lang.String" value="Return Date:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="customerNameField">
+            <Component class="javax.swing.JTextField" name="Cname">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerNameFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CnameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="contactField">
+            <Component class="javax.swing.JTextField" name="cont">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="bookNameField">
+            <Component class="javax.swing.JTextField" name="name">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookNameFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="returnField">
+            <Component class="javax.swing.JTextField" name="rtn">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="addButton">
@@ -290,12 +290,13 @@
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addButtonMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="issuedField">
+            <Component class="javax.swing.JTextField" name="isue">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="issuedFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="isueActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

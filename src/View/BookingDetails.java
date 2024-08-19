@@ -6,7 +6,8 @@ package View;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.JOptionPane;
-import Controller.BookingDetailsController;
+import DAO.bookDAO;
+import Model.Book;
 
 /**
  *
@@ -19,7 +20,7 @@ public class BookingDetails extends javax.swing.JFrame {
      */
     public BookingDetails() {
         initComponents();
-        new BookingDetailsController(this);
+       
     }
 
     /**
@@ -42,12 +43,12 @@ public class BookingDetails extends javax.swing.JFrame {
         contactLabel = new javax.swing.JLabel();
         issuedLabel = new javax.swing.JLabel();
         returnLabel = new javax.swing.JLabel();
-        customerNameField = new javax.swing.JTextField();
-        contactField = new javax.swing.JTextField();
-        bookNameField = new javax.swing.JTextField();
-        returnField = new javax.swing.JTextField();
+        Cname = new javax.swing.JTextField();
+        cont = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        rtn = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
-        issuedField = new javax.swing.JTextField();
+        isue = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         homeLabel = new javax.swing.JLabel();
@@ -97,27 +98,27 @@ public class BookingDetails extends javax.swing.JFrame {
         returnLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         returnLabel.setText("Return Date:");
 
-        customerNameField.addActionListener(new java.awt.event.ActionListener() {
+        Cname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerNameFieldActionPerformed(evt);
+                CnameActionPerformed(evt);
             }
         });
 
-        contactField.addActionListener(new java.awt.event.ActionListener() {
+        cont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactFieldActionPerformed(evt);
+                contActionPerformed(evt);
             }
         });
 
-        bookNameField.addActionListener(new java.awt.event.ActionListener() {
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookNameFieldActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
-        returnField.addActionListener(new java.awt.event.ActionListener() {
+        rtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnFieldActionPerformed(evt);
+                rtnActionPerformed(evt);
             }
         });
 
@@ -125,15 +126,20 @@ public class BookingDetails extends javax.swing.JFrame {
         addButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         addButton.setForeground(new java.awt.Color(255, 255, 255));
         addButton.setText("Add");
+        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addButtonMouseClicked(evt);
+            }
+        });
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
 
-        issuedField.addActionListener(new java.awt.event.ActionListener() {
+        isue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                issuedFieldActionPerformed(evt);
+                isueActionPerformed(evt);
             }
         });
 
@@ -155,11 +161,11 @@ public class BookingDetails extends javax.swing.JFrame {
                     .addComponent(returnLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(returnField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bookNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(issuedField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Cname, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtn, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cont, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(isue, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56))
         );
         jPanel1Layout.setVerticalGroup(
@@ -168,23 +174,23 @@ public class BookingDetails extends javax.swing.JFrame {
                 .addGap(82, 82, 82)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerNameLabel)
-                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Cname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(contactLabel)
-                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookNameLabel)
-                    .addComponent(bookNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(issuedLabel)
-                    .addComponent(issuedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(isue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(returnLabel)
-                    .addComponent(returnField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -369,21 +375,21 @@ public class BookingDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginButtonMouseClicked
 
-    private void customerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameFieldActionPerformed
+    private void CnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_customerNameFieldActionPerformed
+    }//GEN-LAST:event_CnameActionPerformed
 
-    private void contactFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactFieldActionPerformed
+    private void contActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactFieldActionPerformed
+    }//GEN-LAST:event_contActionPerformed
 
-    private void bookNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNameFieldActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bookNameFieldActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void returnFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnFieldActionPerformed
+    private void rtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_returnFieldActionPerformed
+    }//GEN-LAST:event_rtnActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
@@ -403,9 +409,9 @@ public class BookingDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_homeLabelMouseClicked
 
-    private void issuedFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issuedFieldActionPerformed
+    private void isueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_issuedFieldActionPerformed
+    }//GEN-LAST:event_isueActionPerformed
 
     private void customerLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerLabelMouseClicked
         // TODO add your handling code here:
@@ -442,6 +448,37 @@ public class BookingDetails extends javax.swing.JFrame {
         log.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutButtonMouseClicked
+
+    private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
+        // TODO add your handling code here:
+            bookDAO bd=new bookDAO();
+           Book bb=new Book();
+           bb.setCname(Cname.getText());
+           bb.setName(name.getText());
+           bb.setContact(cont.getText());
+           bb.setIssueDate(isue.getText());
+           bb.setReturnDate(rtn.getText());
+       
+        if(bb.getName().isEmpty() || bb.getContact().isEmpty() || bb.getCname().isEmpty() || bb.getIssueDate().isEmpty() || bb.getReturnDate().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please enter all the field");
+            return;
+        }
+        if(bb.getContact().length()!=10){
+            JOptionPane.showMessageDialog(this,"Contact Number must be 10 digit");
+        }
+        else{          
+           if(bd.addBook(bb)){
+              JOptionPane.showMessageDialog(this, "Book registration success");
+                     BooksView customer= new BooksView();
+                    customer.setVisible(true);
+                    this.dispose();
+           }else{
+           JOptionPane.showMessageDialog(this, "Book registration failed");
+           }
+        }
+    
+           
+    }//GEN-LAST:event_addButtonMouseClicked
     
     
     public javax.swing.JButton getAddButton() {
@@ -449,23 +486,23 @@ public class BookingDetails extends javax.swing.JFrame {
     }
     
     public javax.swing.JTextField getBookNameField() {
-        return bookNameField;
+        return name;
     }
     
     public javax.swing.JTextField getContactField() {
-        return contactField;
+        return cont;
     }
     
     public javax.swing.JTextField getCustomerNameField() {
-        return customerNameField;
+        return Cname;
     }
     
     public javax.swing.JTextField getIssuedField() {
-        return issuedField;
+        return isue;
     }
     
     public javax.swing.JTextField getReturnField() {
-        return returnField;
+        return rtn;
     }
     
     
@@ -503,30 +540,30 @@ public class BookingDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Cname;
     private javax.swing.JLabel aboutLabel;
     private javax.swing.JButton addButton;
     private javax.swing.JLabel availableLabel;
-    private javax.swing.JTextField bookNameField;
     private javax.swing.JLabel bookNameLabel;
     private javax.swing.JLabel borrowedLabel;
     private javax.swing.JLabel borrowedLabel1;
-    private javax.swing.JTextField contactField;
+    private javax.swing.JTextField cont;
     private javax.swing.JLabel contactLabel;
     private javax.swing.JLabel customerLabel;
-    private javax.swing.JTextField customerNameField;
     private javax.swing.JLabel customerNameLabel;
     private javax.swing.JLabel fillUpLabel;
     private javax.swing.JLabel homeLabel;
-    private javax.swing.JTextField issuedField;
     private javax.swing.JLabel issuedLabel;
+    private javax.swing.JTextField isue;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginButton;
     private javax.swing.JLabel logo;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField returnField;
+    private javax.swing.JTextField name;
     private javax.swing.JLabel returnLabel;
+    private javax.swing.JTextField rtn;
     private javax.swing.JLabel supportLabel;
     // End of variables declaration//GEN-END:variables
 }

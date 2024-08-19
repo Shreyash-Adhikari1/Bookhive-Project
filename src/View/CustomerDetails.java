@@ -6,7 +6,8 @@ package View;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import javax.swing.JOptionPane;
-import Controller.CustomerDetailsController;
+import DAO.customerDAO;
+import Model.CustomerDetailsMode;
 
 /**
  *
@@ -18,7 +19,7 @@ import Controller.CustomerDetailsController;
      */
     public CustomerDetails() {
         initComponents();
-        new CustomerDetailsController(this);
+//        new CustomerDetailsController(this);
     }
 
     /**
@@ -450,6 +451,36 @@ import Controller.CustomerDetailsController;
 
     private void addBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addBtnMouseClicked
         // TODO add your handling code here:
+        
+        String name = getNameField().getText().trim();
+        String address = getAddressField().getText().trim();
+        String contact = getContactField().getText().trim();
+        String gender = (String) getGenderCombo().getSelectedItem();
+        String email =getEmailField().getText().trim();
+        if(name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty()){
+            JOptionPane.showMessageDialog(this,"Please enter all the field");
+            return;
+        }
+        if(contact.length()!=10){
+            JOptionPane.showMessageDialog(this,"Contact Number must be 10 digit");
+            return;
+        }
+        if(!email.endsWith("@gmail.com")){
+            JOptionPane.showMessageDialog(this,"Email must contain '@gmail.com'");
+        }
+        else{      
+           customerDAO cdd=new customerDAO();
+           CustomerDetailsMode cdm=new CustomerDetailsMode(name,gender,address,contact,email);
+           if(cdd.addCustomer(cdm)){
+               JOptionPane.showMessageDialog(this, "Customer registration success");
+                     CustomerView customer= new CustomerView();
+                    customer.setVisible(true);
+                    this.dispose();
+           }else{
+               JOptionPane.showMessageDialog(this, "Customer registration failed");
+           }
+  
+        }
     }//GEN-LAST:event_addBtnMouseClicked
 
     private void contactFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFieldKeyPressed

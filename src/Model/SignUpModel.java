@@ -10,20 +10,20 @@ package Model;
  */
 public class SignUpModel {
     
-    private final String email;
+    private final String Email;
     private final String password;
     private final String conf_password;
-    private final int registrationNO;
+    private final String registrationNO;
     
-    public SignUpModel(String email, String password, String conf_password , int registrationNO){
-        this.email= email;
+    public SignUpModel(String Email, String password, String conf_password , String registrationNO){
+        this.Email= Email;
         this.password=password;
         this.conf_password=conf_password;
         this.registrationNO=registrationNO;
        
     }
     public String getEmail(){
-        return email;
+        return Email;
     }
     public String getPassword(){
         return password;
@@ -31,7 +31,7 @@ public class SignUpModel {
     public String getConfPassword(){
         return conf_password;
     }
-    public int getRegistrationNO(){
+    public String  getRegistrationNO(){
         return registrationNO;
     }
     

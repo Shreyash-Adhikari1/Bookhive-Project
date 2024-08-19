@@ -3,11 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import Controller.BookViewController;
+
+import DAO.BookPopulatorDAO;
+import DAO.bookDAO;
+import DAO.populatorDAO;
+import Model.Book;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +26,7 @@ public class BooksView extends javax.swing.JFrame {
      */
     public BooksView() {
         initComponents();
-        new BookViewController(this);
+        populate();
     }
 
     /**
@@ -34,19 +40,11 @@ public class BooksView extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        contactField = new javax.swing.JTextField();
-        issuedDateField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         updateBookButton = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
         deleteBookButton = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        bookIdField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         DashHomeLabel = new javax.swing.JLabel();
         DashLogo = new javax.swing.JLabel();
@@ -56,10 +54,6 @@ public class BooksView extends javax.swing.JFrame {
         DashBorrowPageLabel = new javax.swing.JLabel();
         LogoutButton = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        bookNameField = new javax.swing.JTextField();
-        customerNameField = new javax.swing.JTextField();
-        returnDateField = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -77,8 +71,6 @@ public class BooksView extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         jLabel10.setText("BOOKS VIEW");
 
-        jLabel9.setText("Book ID");
-
         updateBookButton.setBackground(new java.awt.Color(255, 153, 0));
         updateBookButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         updateBookButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,8 +80,6 @@ public class BooksView extends javax.swing.JFrame {
                 updateBookButtonActionPerformed(evt);
             }
         });
-
-        jLabel11.setText("Book Name");
 
         deleteBookButton.setBackground(new java.awt.Color(255, 153, 0));
         deleteBookButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -101,17 +91,11 @@ public class BooksView extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("Customer Name");
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel1.setText("About");
 
-        jLabel13.setText("Contact Number");
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel8.setText("Support");
-
-        jLabel14.setText("Issued Date");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(238, 696));
@@ -222,10 +206,6 @@ public class BooksView extends javax.swing.JFrame {
 
         jLabel15.setIcon(new FlatSVGIcon("loginLogo.svg"));
 
-        bookNameField.setToolTipText("");
-
-        jLabel16.setText("Return Date");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -235,32 +215,7 @@ public class BooksView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bookNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(issuedDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(returnDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +230,7 @@ public class BooksView extends javax.swing.JFrame {
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(updateBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deleteBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,31 +243,15 @@ public class BooksView extends javax.swing.JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bookNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(issuedDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(returnDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
                         .addComponent(updateBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(156, 156, 156)
                         .addComponent(deleteBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(190, 190, 190))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(121, 121, 121)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
@@ -323,7 +262,19 @@ public class BooksView extends javax.swing.JFrame {
 
     private void deleteBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBookButtonActionPerformed
         // TODO add your handling code here:
- 
+    DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+        if (jTable1.getSelectedRowCount() == 1){
+        BookPopulatorDAO pdd = new BookPopulatorDAO();
+        
+        pdd.deleteBook(Integer.parseInt(jTable1.getModel().getValueAt(row, 0).toString()));
+                        
+                        this.dispose();
+                    
+                        JOptionPane.showMessageDialog(this, "book deleted successfully");
+                        CustomerView ok = new CustomerView();
+                        ok.setVisible(true);
+                    } 
     }//GEN-LAST:event_deleteBookButtonActionPerformed
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -373,37 +324,43 @@ public class BooksView extends javax.swing.JFrame {
         BooksView bv = new BooksView();
         bv.setVisible(true);
     }//GEN-LAST:event_DashBorrowPageLabelMouseClicked
-
+  private void populate(){
+        
+         BookPopulatorDAO pd=new BookPopulatorDAO();
+        List<Book> CustomerList = pd.fetchBook();
+        String[] columnNames={"ID","Book Name","Customer Name","Contact","Issue","Return"};
+        DefaultTableModel model = new DefaultTableModel(columnNames,0);
+        for(Book customers: CustomerList){
+            Object[] rowData ={customers.getId(),customers.getName(),customers.getCname(),customers.getContact(),customers.getIssueDate(),customers.getReturnDate()};
+            model.addRow(rowData);
+        }
+        jTable1.setModel(model);
+    }
     private void updateBookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBookButtonActionPerformed
         // TODO add your handling code here:
-
+    DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+        if (jTable1.getSelectedRowCount() == 1) {
+        
+        Book b=new Book();
+        b.setName(jTable1.getModel().getValueAt(row,1).toString());
+        b.setCname(jTable1.getModel().getValueAt(row,2).toString());
+        b.setContact(jTable1.getModel().getValueAt(row,3).toString());
+        b.setIssueDate(jTable1.getModel().getValueAt(row,4).toString());
+        b.setReturnDate(jTable1.getModel().getValueAt(row,5).toString());
+        
+        BookPopulatorDAO pdd = new BookPopulatorDAO();
+        bookDAO cdd = new bookDAO();
+        pdd.deleteBook(Integer.parseInt(jTable1.getModel().getValueAt(row, 0).toString()));
+                        cdd.addBook(b);
+                        this.dispose();
+                    
+                        JOptionPane.showMessageDialog(this, "book updated successfully");
+                        BooksView ok = new BooksView();
+                        ok.setVisible(true);
+                    } 
     }//GEN-LAST:event_updateBookButtonActionPerformed
-public javax.swing.JButton getUpdateBookButton(){
-    return updateBookButton;
-}
-public javax.swing.JButton getDeleteBookButton(){
-    return deleteBookButton;
-}
-public javax.swing.JTextField getCustomerNameField(){
-    return customerNameField;
-}
-public javax.swing.JTextField getBookNameField(){
-    return bookNameField;
-}
-public javax.swing.JTextField getContactField(){
-    return contactField;
-}
 
-public javax.swing.JTextField getIssuedDateField(){
-    return issuedDateField;
-}
-
-public javax.swing.JTextField getReturnDateField(){
-    return returnDateField;
-}
-public javax.swing.JTextField getBookIdField(){
-    return bookIdField;
-}
     /**
      * @param args the command line arguments
      */
@@ -447,26 +404,14 @@ public javax.swing.JTextField getBookIdField(){
     private javax.swing.JLabel DashHomeLabel;
     private javax.swing.JLabel DashLogo;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JTextField bookIdField;
-    private javax.swing.JTextField bookNameField;
-    private javax.swing.JTextField contactField;
-    private javax.swing.JTextField customerNameField;
     private javax.swing.JButton deleteBookButton;
-    private javax.swing.JTextField issuedDateField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField returnDateField;
     private javax.swing.JButton updateBookButton;
     // End of variables declaration//GEN-END:variables
 }

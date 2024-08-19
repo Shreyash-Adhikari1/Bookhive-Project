@@ -2,7 +2,7 @@ package View;
 
 
 import javax.swing.JOptionPane;
-import Controller.LoginController;
+import DAO.LoginDAO;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,7 +20,6 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        new LoginController(this);
     }
 
     /**
@@ -180,6 +179,16 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
         // TODO add your handling code here:
+        LoginDAO ldd=new LoginDAO();
+        if(!(emailField.getText().isEmpty())&&!(passwordField.getText().isEmpty())&& ldd.authenticateUser(emailField.getText(), passwordField.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Login Successful");
+            this.dispose();
+            HomePage hpg=new HomePage();
+            hpg.setVisible(true);
+        }
+        else{
+        JOptionPane.showMessageDialog(rootPane, "Login Failed!! Please check the email and password");
+        }
     }//GEN-LAST:event_LoginBtnMouseClicked
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtnActionPerformed
@@ -198,9 +207,9 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void RegisterHereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterHereMouseClicked
         // TODO add your handling code here:
+                this.dispose();
         SignUp sign = new SignUp();
         sign.setVisible(true);
-        this.dispose();
         
     }//GEN-LAST:event_RegisterHereMouseClicked
 

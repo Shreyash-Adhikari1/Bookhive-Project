@@ -3,9 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-import Controller.CustomerViewController;
+
+import DAO.customerDAO;
+import DAO.populatorDAO;
+import Model.CustomerDetailsMode;
+import Model.populatorModel;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -19,7 +25,7 @@ public class CustomerView extends javax.swing.JFrame {
      */
     public CustomerView() {
         initComponents();
-        new CustomerViewController(this);
+        populate();
     }
 
     /**
@@ -46,17 +52,6 @@ public class CustomerView extends javax.swing.JFrame {
         DeleteCustomerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        customerIdField = new javax.swing.JTextField();
-        customerNameField = new javax.swing.JTextField();
-        contactField = new javax.swing.JTextField();
-        emailField = new javax.swing.JTextField();
-        addressField = new javax.swing.JTextField();
-        genderCombo = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -176,6 +171,11 @@ public class CustomerView extends javax.swing.JFrame {
         UpdateDetailsButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         UpdateDetailsButton.setForeground(new java.awt.Color(255, 255, 255));
         UpdateDetailsButton.setText("Update Details");
+        UpdateDetailsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UpdateDetailsButtonMouseClicked(evt);
+            }
+        });
         UpdateDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UpdateDetailsButtonActionPerformed(evt);
@@ -198,21 +198,6 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel8.setText("Support");
 
-        customerNameField.setToolTipText("");
-
-        genderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Non-Binary" }));
-        genderCombo.setToolTipText("");
-
-        jLabel9.setText("Customer ID");
-
-        jLabel11.setText("Customer Name");
-
-        jLabel12.setText("Contact Number");
-
-        jLabel13.setText("Email");
-
-        jLabel14.setText("Address");
-
         jLabel15.setIcon(new FlatSVGIcon("loginLogo.svg"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,31 +209,7 @@ public class CustomerView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(customerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(genderCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,30 +237,15 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(customerIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(genderCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                         .addComponent(UpdateDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(153, 153, 153)
                         .addComponent(DeleteCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(190, 190, 190))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
+                        .addGap(121, 121, 121)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(53, Short.MAX_VALUE))))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
@@ -309,7 +255,20 @@ public class CustomerView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DeleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerButtonActionPerformed
-       
+//       
+        DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+        if (jTable1.getSelectedRowCount() == 1){
+        populatorDAO pdd = new populatorDAO();
+        
+        pdd.deleteCustomer(Integer.parseInt(jTable1.getModel().getValueAt(row, 0).toString()));
+                        
+                        this.dispose();
+                    
+                        JOptionPane.showMessageDialog(this, "customer deleted successfully");
+                        CustomerView ok = new CustomerView();
+                        ok.setVisible(true);
+                    } 
     }//GEN-LAST:event_DeleteCustomerButtonActionPerformed
 
     private void LogoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogoutButtonMouseClicked
@@ -345,42 +304,47 @@ public class CustomerView extends javax.swing.JFrame {
         BooksView bv = new BooksView();
         bv.setVisible(true);
     }//GEN-LAST:event_DashBorrowPageLabelMouseClicked
-
+    
+    private void populate(){
+        
+         populatorDAO pd=new populatorDAO();
+        List<populatorModel> CustomerList = pd.fetchCustomers();
+        String[] columnNames={"Customer ID","Customer Name","C Number","Email","Address","Gender"};
+        DefaultTableModel model = new DefaultTableModel(columnNames,0);
+        for(populatorModel customers: CustomerList){
+            Object[] rowData ={customers.id,customers.getName(),customers.getContact(),customers.getEmail(),customers.getAddress(),customers.getGender()};
+            model.addRow(rowData);
+        }
+        jTable1.setModel(model);
+    }
     private void UpdateDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDetailsButtonActionPerformed
-        // TODO add your handling code here:
-
+//
+        
         
     }//GEN-LAST:event_UpdateDetailsButtonActionPerformed
-public javax.swing.JTextField getCustomerNameField(){
-    return customerNameField;
-}
 
-public javax.swing.JTextField getAddressField(){
-    return addressField;
-}
-public javax.swing.JTextField getContactField(){
-    return contactField;
-}
+    private void UpdateDetailsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateDetailsButtonMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+        int row = jTable1.getSelectedRow();
+        if (jTable1.getSelectedRowCount() == 1) {
+        CustomerDetailsMode a = new CustomerDetailsMode(jTable1.getModel().getValueAt(row, 1).toString(), jTable1.getModel().getValueAt(row,5).toString(),jTable1.getModel().getValueAt(row, 4).toString(),jTable1.getModel().getValueAt(row, 2).toString(),jTable1.getModel().getValueAt(row,3).toString());
+        
+        populatorDAO pdd = new populatorDAO();
+        customerDAO cdd = new customerDAO();
+        pdd.deleteCustomer(Integer.parseInt(jTable1.getModel().getValueAt(row, 0).toString()));
+                        cdd.addCustomer(a);
+                        this.dispose();
+                    
+                        JOptionPane.showMessageDialog(this, "customer updated successfully");
+                        CustomerView ok = new CustomerView();
+                        ok.setVisible(true);
+                    } 
 
-public javax.swing.JComboBox<String> getGenderCombo(){
-    return genderCombo;
-}
+       
+    
+    }//GEN-LAST:event_UpdateDetailsButtonMouseClicked
 
-public javax.swing.JTextField getEmailField(){
-    return emailField;
-}
-
-public javax.swing.JButton getUpdateDetailsButton(){
-    return UpdateDetailsButton;
-}
-
-public javax.swing.JButton getDeleteCustomerButton(){
-    return DeleteCustomerButton;
-}
-
-public javax.swing.JTextField getCustomerIdField(){
-    return customerIdField;
-}
     /**
      * @param args the command line arguments
      */
@@ -425,22 +389,11 @@ public javax.swing.JTextField getCustomerIdField(){
     private javax.swing.JButton DeleteCustomerButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton UpdateDetailsButton;
-    private javax.swing.JTextField addressField;
-    private javax.swing.JTextField contactField;
-    private javax.swing.JTextField customerIdField;
-    private javax.swing.JTextField customerNameField;
-    private javax.swing.JTextField emailField;
-    private javax.swing.JComboBox<String> genderCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
