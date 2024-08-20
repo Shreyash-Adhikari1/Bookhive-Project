@@ -15,14 +15,7 @@ public class populatorModel{
     private String address;
     private String contact;
     private String customerEmail;
-    
-   
-        
-        
-        
-        
-        
-    
+                
     public String getName(){
         return customerName;
     }
